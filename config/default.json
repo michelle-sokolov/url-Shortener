@@ -1,0 +1,4 @@
+{
+    "mongoURI": "mongodb+srv://michSokolov:hotdogS13!@cluster0.jel0b.mongodb.net/micheSokolov?retryWrites=true&w=majority",
+    "baseURL": "http://localhost:5000"
+}
