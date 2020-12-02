@@ -10,5 +10,9 @@ app.set('view engine', 'ejs')
 app.get('/', async (req, res) => {
     res.render('index')
 })
+// POST request
+app.post('/shortUrls', (req, res) => {
+
+})
 
 app.listen(process.env.PORT || 5000);
