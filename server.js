@@ -16,6 +16,15 @@ app.get('/', async (req, res) => {
     // send short URLs to views
     res.render('index', { shortUrls: shortUrls })
 })
+// get short url code
+app.get('/:shortUrl', async (req, res) => {
+    const shortUrl = await ShortUrl.findOne({ short: req.params.shortUrl })
+    // if URL submitted is invalid
+    if (shortUrl == null) return res.sendStatus(404)
+    shortUrl.save()
+    // use long url to redirect user with short code
+    res.redirect(shortUrl.full)
+})
 // POST request - create short URL
 app.post('/shortUrls', async (req, res) => {
     await ShortUrl.create({ full: req.body.fullUrl })

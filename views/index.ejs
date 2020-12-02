@@ -11,34 +11,36 @@
 </head>
 
 <body>
+    <div class="container">
+        <h2>URL Shortener</h2>
+        <br />
+        <form action="/shortUrls" method="POST" class="form-inline">
+            <label for="fullUrl" class="sr-only">Url</label>
+            <input required placeholder="Url goes here..." type="url" name="fullUrl" id="fullUrl"
+                class="form-control col">
+            <button class="btn btn-primary" type="submit">submit</button>
+        </form>
 
-    <h2>URL Shortener</h2>
-    <form action="" method="POST">
-        <label for="fullUrl">URL</label>
-        <input type="url" name="fullUrl" id="fullUrl"></input>
-        <button type="submit">submit</button>
-    </form>
-    <table class="table table-striped">
-        <thead>
-            <tr>
-                <th>Full URL</th>
-                <th>Short URL</th>
-            </tr>
-        </thead>
-        <tbody>
-            <!--loop thru urls-->
-            <% shortUrls.forEach(element => { %>
-            <tr>
-                <td style="width: 50%;">
-                    <a style="font-size: xx-small; overflow-wrap: anywhere;"
-                        href="<%= element.full %>"><%= element.full %></a>
-                </td>
-                <td><a href="<%= element.short %>"><%= element.short %></a></td>
-            </tr>
-            <% }) %>
-        </tbody>
-    </table>
-
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Full URL</th>
+                    <th>Short URL</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% shortUrls.forEach(shortUrl => { %>
+                <tr>
+                    <td style="width: 50%;">
+                        <a style="font-size: xx-small; overflow-wrap: anywhere;"
+                            href="<%= shortUrl.full %>"><%= shortUrl.full %></a>
+                    </td>
+                    <td><a href="<%= shortUrl.short %>"><%= shortUrl.short %></a></td>
+                </tr>
+                <% }) %>
+            </tbody>
+        </table>
+    </div>
 </body>
 
 </html>
