@@ -26,13 +26,16 @@
             </tr>
         </thead>
         <tbody>
-
+            <!--loop thru urls-->
+            <% shortUrls.forEach(element => { %>
             <tr>
-                <td>
-                    <a href=""> xxxx </a>
+                <td style="width: 50%;">
+                    <a style="font-size: xx-small; overflow-wrap: anywhere;"
+                        href="<%= element.full %>"><%= element.full %></a>
                 </td>
-                <a href=""> xxxx </a>
+                <td><a href="<%= element.short %>"><%= element.short %></a></td>
             </tr>
+            <% }) %>
         </tbody>
     </table>
 
